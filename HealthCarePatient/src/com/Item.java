@@ -40,7 +40,7 @@ public class Item {
 			}
 			// Prepare the html table to be displayed
 			output = "<table class='table'><thead class='thead-dark'><tr><th>Last Name</th> <th>Last Name</th><th>Phone Number</th>"+ "<th>Email</th><th>Age</th><th>Address</th><th>Password</th><th>Update</th><th>Remove</th></tr> </thead>";
-			String query = "select * from items";
+			String query = "select * from patient";
 			Statement stmt = con.createStatement();
 			ResultSet rs = stmt.executeQuery(query);
 			// iterate through the rows in the result set
@@ -84,7 +84,7 @@ public class Item {
 				return "Error while connecting to the database for inserting.";
 			}
 			// create a prepared statement
-			String query = " insert into items(`PatientID`,`Fname`,`Lname`,`Pnumber`,`Email`, `Age`,`Address`,`Password`)"+ " values (?, ?, ?, ?, ?, ?, ?, ?)";
+			String query = " insert into patient(`PatientID`,`Fname`,`Lname`,`Pnumber`,`Email`, `Age`,`Address`,`Password`)"+ " values (?, ?, ?, ?, ?, ?, ?, ?)";
 			PreparedStatement preparedStmt = con.prepareStatement(query);
 			// binding values
 			preparedStmt.setInt(1, 0);
@@ -124,7 +124,7 @@ public class Item {
 				return "Error while connecting to the database for updating.";
 			}
 			// create a prepared statement
-			String query = "UPDATE items SET Fname=?,Lname=?,Pnumber=?,Email=?,Age=?,Address=?,Password=? WHERE PatientID=?";
+			String query = "UPDATE patient SET Fname=?,Lname=?,Pnumber=?,Email=?,Age=?,Address=?,Password=? WHERE PatientID=?";
 			PreparedStatement preparedStmt = con.prepareStatement(query);
 			// binding values
 			preparedStmt.setString(1, code);
@@ -158,7 +158,7 @@ public class Item {
 				return "Error while connecting to the database for deleting.";
 			}
 			// create a prepared statement
-			String query = "delete from items where itemID=?";
+			String query = "delete from patient where PatientID=?";
 			PreparedStatement preparedStmt = con.prepareStatement(query);
 			// binding values
 			preparedStmt.setInt(1, Integer.parseInt(PatientID));
