@@ -30,8 +30,7 @@
 					<input id="Lname" name="Lname" type="text"class="form-control form-control-sm"> 
 					<br> Phone Number: 
 					<input id="Pnumber" name="Pnumber" type="text"class="form-control form-control-sm"> 
-					<br> Email : 
-					<input id="Email" name="Email" type="text"class="form-control form-control-sm">
+				
 					<br> Age : 
 					<input id="Age" name="Age" type="text"class="form-control form-control-sm">
 					<br> Address : 

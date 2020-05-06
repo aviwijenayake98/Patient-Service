@@ -103,10 +103,9 @@ $(document).on(
 			$("#Fname").val($(this).closest("tr").find('td:eq(0)').text());
 			$("#Lname").val($(this).closest("tr").find('td:eq(1)').text());
 			$("#Pnumber").val($(this).closest("tr").find('td:eq(2)').text());
-			$("#Email").val($(this).closest("tr").find('td:eq(3)').text());
-			$("#Age").val($(this).closest("tr").find('td:eq(4)').text());
-			$("#Address").val($(this).closest("tr").find('td:eq(5)').text());
-			$("#Password").val($(this).closest("tr").find('td:eq(6)').text());
+			$("#Age").val($(this).closest("tr").find('td:eq(3)').text());
+			$("#Address").val($(this).closest("tr").find('td:eq(4)').text());
+			$("#Password").val($(this).closest("tr").find('td:eq(5)').text());
 			
 		});
 // CLIENTMODEL=========================================================================
@@ -128,10 +127,6 @@ function validateItemForm() {
 	var tmpPrice = $("#Pnumber").val().trim();
 	if (!$.isNumeric(tmpPrice)) {
 		return "Insert a numerical value for phone number.";
-	}
-	// DESCRIPTION------------------------
-	if ($("#Email").val().trim() == "") {
-		return "Enter Email Address.";
 	}
 	// AGE
 	var tmpAge = $("#Age").val().trim();

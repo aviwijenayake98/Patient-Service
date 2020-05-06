@@ -47,7 +47,6 @@ public class ItemsAPI extends HttpServlet {
 		String output = itemObj.insertItem(request.getParameter("Fname"),
 				request.getParameter("Lname"),
 				request.getParameter("Pnumber"),
-				request.getParameter("Email"),
 				request.getParameter("Age"),
 				request.getParameter("Address"),
 				request.getParameter("Password"));
@@ -67,7 +66,6 @@ public class ItemsAPI extends HttpServlet {
 				paras.get("Fname").toString(),
 				paras.get("Lname").toString(),
 				paras.get("Pnumber").toString(),
-				paras.get("Email").toString(),
 				paras.get("Age").toString(),
 				paras.get("Address").toString(),
 				paras.get("Password").toString());
