@@ -65,7 +65,7 @@ $(document).on("click", ".btnRemove", function(event) {
 	$.ajax({
 		url : "ItemsAPI",
 		type : "DELETE",
-		data : "itemID=" + $(this).data("itemid"),
+		data : "PatientID=" + $(this).data("itemid"),
 		dataType : "text",
 		complete : function(response, status) {
 			onItemDeleteComplete(response.responseText, status);
@@ -113,16 +113,16 @@ $(document).on(
 function validateItemForm() {
 	// CODE
 	if ($("#Fname").val().trim() == "") {
-		return "Insert Item Code.";
+		return "Enter Item first name.";
 	}
 	// NAME
 	if ($("#Lname").val().trim() == "") {
-		return "Insert Item Name.";
+		return "Enter last Name.";
 	}
 
 	// PRICE-------------------------------
 	if ($("#Pnumber").val().trim() == "") {
-		return "Insert Item Phone Number.";
+		return "Enter patient Phone Number.";
 	}
 	// is numerical value
 	var tmpPrice = $("#Pnumber").val().trim();
@@ -131,7 +131,7 @@ function validateItemForm() {
 	}
 	// DESCRIPTION------------------------
 	if ($("#Email").val().trim() == "") {
-		return "Insert Item Description.";
+		return "Enter Email Address.";
 	}
 	// AGE
 	var tmpAge = $("#Age").val().trim();
@@ -140,7 +140,7 @@ function validateItemForm() {
 	}
 	// addresss
 	if ($("#Address").val().trim() == "") {
-		return "Insert Address.";
+		return "Enter Address.";
 	}
 	//Password
 	if ($("#Password").val().trim() == "") {

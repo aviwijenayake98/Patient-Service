@@ -39,7 +39,7 @@ public class Item {
 				return "Error while connecting to the database for reading.";
 			}
 			// Prepare the html table to be displayed
-			output = "<table class='table'><thead class='thead-dark'><tr><th>Last Name</th> <th>Last Name</th><th>Phone Number</th>"+ "<th>Email</th><th>Age</th><th>Address</th><th>Password</th><th>Update</th><th>Remove</th></tr> </thead>";
+			output = "<table class='table'><thead class='thead-dark'><tr><th>First Name</th> <th>Last Name</th><th>Phone Number</th>"+ "<th>Email</th><th>Age</th><th>Address</th><th>Password</th><th>Update</th><th>Remove</th></tr> </thead>";
 			String query = "select * from patient";
 			Statement stmt = con.createStatement();
 			ResultSet rs = stmt.executeQuery(query);
@@ -66,14 +66,14 @@ public class Item {
 		}
 		catch (Exception e)
 		{
-			output = "Error while reading the items.";
+			output = "Error while reading the patient details.";
 			System.err.println(e.getMessage());
 		}
 		return output;
 	}
 	
 	//inserting---------------------
-	public String insertItem(String code, String name,String price, String desc, String Age, String Address, String Password)
+	public String insertItem(String fname, String lname,String pnumber, String email, String Age, String Address, String Password)
 	{
 		String output = "";
 		try
@@ -88,10 +88,10 @@ public class Item {
 			PreparedStatement preparedStmt = con.prepareStatement(query);
 			// binding values
 			preparedStmt.setInt(1, 0);
-			preparedStmt.setString(2, code);
-			preparedStmt.setString(3, name);
-			preparedStmt.setInt(4, Integer.parseInt(price));
-			preparedStmt.setString(5, desc);
+			preparedStmt.setString(2, fname);
+			preparedStmt.setString(3, lname);
+			preparedStmt.setInt(4, Integer.parseInt(pnumber));
+			preparedStmt.setString(5, email);
 			preparedStmt.setInt(6, Integer.parseInt(Age));
 			preparedStmt.setString(7, Address);
 			preparedStmt.setString(8, Password);
@@ -106,14 +106,14 @@ public class Item {
 		}
 		catch (Exception e)
 		{
-			output = "{\"status\":\"error\", \"data\":\"Error while inserting the item.\"}";
+			output = "{\"status\":\"error\", \"data\":\"Error while inserting the patient.\"}";
 			System.err.println(e.getMessage());
 		}
 		return output;
 	}
 
 	//update items
-	public String updateItem(String ID, String code, String name,String price, String desc, String Age, String Address,String Password)
+	public String updateItem(String ID, String fname, String lname,String pnumber, String email, String Age, String Address,String Password)
 	{
 		String output = "";
 		try
@@ -127,13 +127,13 @@ public class Item {
 			String query = "UPDATE patient SET Fname=?,Lname=?,Pnumber=?,Email=?,Age=?,Address=?,Password=? WHERE PatientID=?";
 			PreparedStatement preparedStmt = con.prepareStatement(query);
 			// binding values
-			preparedStmt.setString(1, code);
-			preparedStmt.setString(2, name);
-			preparedStmt.setInt(3, Integer.parseInt(price));
-			preparedStmt.setString(4, desc);
+			preparedStmt.setString(1, fname);
+			preparedStmt.setString(2, lname);
+			preparedStmt.setInt(3, Integer.parseInt(pnumber));
+			preparedStmt.setString(4, email);
 			preparedStmt.setInt(5, Integer.parseInt(Age));
-			preparedStmt.setString(6, Password);
-			preparedStmt.setString(7, Address);
+			preparedStmt.setString(6, Address);
+			preparedStmt.setString(7, Password);
 			preparedStmt.setInt(8, Integer.parseInt(ID));
 			// execute the statement
 			preparedStmt.execute();
@@ -143,7 +143,7 @@ public class Item {
 		}
 		catch (Exception e)
 		{
-			output = "{\"status\":\"error\", \"data\":\"Error while updating the Details.\"}";
+			output = "{\"status\":\"error\", \"data\":\"Error while updating the patient Details.\"}";
 			System.err.println(e.getMessage());
 		}
 		return output;
@@ -170,7 +170,7 @@ public class Item {
 			output = "{\"status\":\"success\", \"data\": \"" + newItems + "\"}";
 		} catch (Exception e) {
 			//output = "Error while deleting the item.";
-			output = "{\"status\":\"error\", \"data\":\"Error while deleting the item.\"}";
+			output = "{\"status\":\"error\", \"data\":\"Error while deleting account\"}";
 			
 			System.err.println(e.getMessage());
 		}
